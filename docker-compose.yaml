@@ -1,13 +1,23 @@
 services:
-  otel-collector:
-    image: otel/opentelemetry-collector-contrib:latest
-    container_name: otel-collector
-    command: ["--config=/etc/otelcol/config.yaml"]
+  alloy:
+    image: grafana/alloy:latest
+    container_name: alloy
+    command: ["run", "--server.http.listen-addr=0.0.0.0:12345", "--stability.level=experimental", "/etc/alloy/config.alloy"]
     volumes:
-      - ./collector-config.yaml:/etc/otelcol/config.yaml
+      - ./alloy-config-simple.alloy:/etc/alloy/config.alloy
+      - ./traces:/tmp
     ports:
+      - "4317:4317"
       - "4318:4318"   # OTLP HTTP receiver
       - "9464:9464"   # Prometheus scrape endpoint
+      - "12345:12345" # Alloy UI
+    environment:
+      OTELCOL_LOG_LEVEL: debug
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "3"
 
   prometheus:
     image: prom/prometheus:latest
@@ -17,7 +27,10 @@ services:
     ports:
       - "9090:9090"   # Prometheus UI
     depends_on:
-      - otel-collector
+      - alloy
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --web.enable-remote-write-receiver
 
   grafana:
     image: grafana/grafana:latest
@@ -30,20 +43,20 @@ services:
     depends_on:
       - prometheus
 
-  zipkin:
-    image: openzipkin/zipkin:2.27
-    container_name: zipkin
-    ports:
-      - "9411:9411"   # Zipkin UI and HTTP endpoint
-    environment:
-      - STORAGE_TYPE=mem   # in-memory storage (default, good for local dev)
+  # zipkin:
+  #   image: openzipkin/zipkin:2.27
+  #   container_name: zipkin
+  #   ports:
+  #     - "9411:9411"   # Zipkin UI and HTTP endpoint
+  #   environment:
+  #     - STORAGE_TYPE=mem   # in-memory storage (default, good for local dev)
 
-  tempo:
-    image: grafana/tempo:latest
-    command: ["-config.file=/etc/tempo.yaml"]
-    volumes:
-      - ./tempo.yaml:/etc/tempo.yaml
-    ports:
-      - "3200:3200" # tempo
-      - "4317:4317" # otlp grpc
+  # tempo:
+  #   image: grafana/tempo:latest
+  #   command: ["-config.file=/etc/tempo.yaml"]
+  #   volumes:
+  #     - ./tempo.yaml:/etc/tempo.yaml
+  #   ports:
+  #     - "3200:3200" # tempo
+  #     - "4317:4317" # otlp grpc
 

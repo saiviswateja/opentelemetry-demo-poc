@@ -1,0 +1,109 @@
+// Simple Grafana Alloy configuration - writes traces to file
+// No external system dependencies
+
+// OTLP receiver for traces, metrics, and logs
+otelcol.receiver.otlp "default" {
+  http {
+    endpoint = "0.0.0.0:4318"
+  }
+  grpc {
+    endpoint = "0.0.0.0:4317"
+  }
+
+  cors {
+      allowed_origins = ["http://localhost:4200"]
+      allowed_headers = ["Content-Type", "Authorization", "traceparent", "tracestate"]
+      max_age = 7200
+    }
+
+  output {
+    metrics = [otelcol.processor.batch.metrics.input]
+    logs    = [otelcol.processor.batch.logs.input]
+    traces  = [otelcol.connector.servicegraph.default.input, otelcol.processor.batch.traces.input]
+  }
+}
+
+// Meta-monitoring: Alloy internal metrics using native Prometheus components
+prometheus.exporter.self "alloy" {
+}
+
+prometheus.scrape "alloy_metrics" {
+  targets    = prometheus.exporter.self.alloy.targets
+  forward_to = [prometheus.remote_write.metrics.receiver]
+}
+
+  prometheus.remote_write "metrics" {
+    endpoint {
+      url = "http://prometheus:9090/api/v1/write"
+    }
+  }
+
+// Batch processor for metrics (will output to debug)
+otelcol.processor.batch "metrics" {
+  output {
+    metrics = [otelcol.exporter.debug.metrics.input]
+  }
+}
+
+// Batch processor for traces (will output to debug with detailed logging)
+otelcol.processor.batch "traces" {
+  output {
+    traces = [otelcol.exporter.debug.traces.input]
+  }
+}
+
+// Batch processor for logs (will output to debug)
+otelcol.processor.batch "logs" {
+  output {
+    logs = [otelcol.exporter.debug.logs.input]
+  }
+}
+
+// Service graph connector for generating service topology metrics
+otelcol.connector.servicegraph "default" {
+  latency_histogram_buckets = ["100us", "1ms", "2ms", "6ms", "10ms", "100ms", "250ms"]
+  dimensions = ["cluster", "namespace"]
+  store {
+    ttl = "2s"
+    max_items = 1000
+  }
+  
+  output {
+    metrics = [otelcol.exporter.debug.servicegraph.input]
+  }
+}
+
+// Debug exporter for traces - outputs detailed trace information to logs
+otelcol.exporter.debug "traces" {
+  verbosity = "detailed"
+  sampling_initial = 1
+  sampling_thereafter = 1
+}
+
+
+// Debug exporter for metrics
+otelcol.exporter.debug "metrics" {
+  verbosity = "basic"
+  sampling_initial = 2
+  sampling_thereafter = 500
+}
+
+// Debug exporter for service graph metrics
+otelcol.exporter.debug "servicegraph" {
+  verbosity = "basic"
+  sampling_initial = 2
+  sampling_thereafter = 500
+}
+
+// Debug exporter for logs
+otelcol.exporter.debug "logs" {
+  verbosity = "basic"
+  sampling_initial = 2
+  sampling_thereafter = 500
+}
+
+// Logging configuration
+logging {
+  level  = "debug"
+  format = "logfmt"
+}

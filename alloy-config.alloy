@@ -1,0 +1,84 @@
+// Grafana Alloy configuration to replace OpenTelemetry Collector
+
+// OTLP receiver for traces, metrics, and logs
+otelcol.receiver.otlp "default" {
+  http {
+    endpoint = "0.0.0.0:4318"
+  }
+
+  output {
+    metrics = [otelcol.processor.batch.metrics.input]
+    logs    = [otelcol.processor.batch.logs.input]
+    traces  = [otelcol.connector.servicegraph.default.input, otelcol.processor.batch.traces.input]
+  }
+}
+
+// Batch processor for metrics
+otelcol.processor.batch "metrics" {
+  output {
+    metrics = [otelcol.exporter.prometheus.default.input]
+  }
+}
+
+// Batch processor for traces
+otelcol.processor.batch "traces" {
+  output {
+    traces = [otelcol.exporter.otlp.tempo.input]
+  }
+}
+
+// Separate batch processor for logs
+otelcol.processor.batch "logs" {
+  output {
+    logs = [otelcol.exporter.debug.logs.input]
+  }
+}
+
+// Service graph connector for generating service topology metrics
+otelcol.connector.servicegraph "default" {
+  latency_histogram_buckets = ["100us", "1ms", "2ms", "6ms", "10ms", "100ms", "250ms"]
+  dimensions = ["cluster", "namespace"]
+  store {
+    ttl = "2s"
+    max_items = 1000
+  }
+  
+  output {
+    metrics = [otelcol.processor.batch.metrics.input]
+  }
+}
+
+// Debug exporter for logs (outputs to Alloy logs)
+otelcol.exporter.debug "logs" {
+  verbosity = "basic"
+  sampling_initial = 2
+  sampling_thereafter = 500
+}
+
+// Prometheus exporter for metrics - convert to Prometheus format and forward
+otelcol.exporter.prometheus "default" {
+  forward_to = [prometheus.remote_write.default.receiver]
+}
+
+// Prometheus remote write to expose metrics on scrape endpoint
+prometheus.remote_write "default" {
+  endpoint {
+    url = "http://prometheus:9090/api/v1/write"
+  }
+}
+
+// OTLP exporter for Tempo traces
+otelcol.exporter.otlp "tempo" {
+  client {
+    endpoint = "tempo:4317"
+    tls {
+      insecure = true
+    }
+  }
+}
+
+// Logging configuration
+logging {
+  level  = "debug"
+  format = "logfmt"
+}
