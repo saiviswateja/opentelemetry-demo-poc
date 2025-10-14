@@ -35,13 +35,17 @@ services:
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
+    volumes:
+      - ./grafana-datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml
     ports:
       - "3000:3000"   # Grafana UI
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_FEATURE_TOGGLES_ENABLE=traceqlEditor
     depends_on:
       - prometheus
+      - tempo
 
   # zipkin:
   #   image: openzipkin/zipkin:2.27
@@ -51,12 +55,11 @@ services:
   #   environment:
   #     - STORAGE_TYPE=mem   # in-memory storage (default, good for local dev)
 
-  # tempo:
-  #   image: grafana/tempo:latest
-  #   command: ["-config.file=/etc/tempo.yaml"]
-  #   volumes:
-  #     - ./tempo.yaml:/etc/tempo.yaml
-  #   ports:
-  #     - "3200:3200" # tempo
-  #     - "4317:4317" # otlp grpc
+  tempo:
+    image: grafana/tempo:latest
+    command: ["-config.file=/etc/tempo.yaml"]
+    volumes:
+      - ./tempo.yaml:/etc/tempo.yaml
+    ports:
+      - "3200:3200" # tempo API
 

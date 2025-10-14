@@ -10,12 +10,6 @@ otelcol.receiver.otlp "default" {
     endpoint = "0.0.0.0:4317"
   }
 
-  cors {
-      allowed_origins = ["http://localhost:4200"]
-      allowed_headers = ["Content-Type", "Authorization", "traceparent", "tracestate"]
-      max_age = 7200
-    }
-
   output {
     metrics = [otelcol.processor.batch.metrics.input]
     logs    = [otelcol.processor.batch.logs.input]
@@ -45,10 +39,17 @@ otelcol.processor.batch "metrics" {
   }
 }
 
-// Batch processor for traces (will output to debug with detailed logging)
+// Batch processor for traces (will output to debug and Tempo)
 otelcol.processor.batch "traces" {
   output {
-    traces = [otelcol.exporter.debug.traces.input]
+    traces = [otelcol.exporter.debug.traces.input, otelcol.exporter.otlphttp.tempo.input]
+  }
+}
+
+// OTLP exporter to send traces to Tempo
+otelcol.exporter.otlphttp "tempo" {
+  client {
+    endpoint = "http://tempo:4318"
   }
 }
 

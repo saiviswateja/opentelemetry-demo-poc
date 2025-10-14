@@ -1,105 +1,13 @@
 =========================================
-Traces extracted at: Tue Oct  7 12:04:53 IST 2025
+Traces extracted at: Tue Oct 14 14:07:07 IST 2025
 =========================================
 
-ts=2025-09-30T08:11:55.97055342Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=b32a245e51968f377ae1cb31c7f4c2a7 node_id=otelcol.exporter.debug.traces duration=107.669µs
-ts=2025-09-30T08:11:55.970555712Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=b32a245e51968f377ae1cb31c7f4c2a7 node_id=otelcol.processor.batch.traces duration=37.501µs
-ts=2025-09-30T08:11:55.970558003Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=b32a245e51968f377ae1cb31c7f4c2a7 node_id=prometheus.exporter.self.alloy duration=20.125µs
-ts=2025-09-30T08:11:55.970561545Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=b32a245e51968f377ae1cb31c7f4c2a7 node_id=otel duration=1.667µs
-ts=2025-09-30T08:11:55.97056367Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=b32a245e51968f377ae1cb31c7f4c2a7 node_id=livedebugging duration=10.5µs
-ts=2025-09-30T08:11:55.970567212Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=b32a245e51968f377ae1cb31c7f4c2a7 node_id=otelcol.exporter.debug.servicegraph duration=98.502µs
-ts=2025-09-30T08:11:55.970569379Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=b32a245e51968f377ae1cb31c7f4c2a7 node_id=otelcol.connector.servicegraph.default duration=65.585µs
-ts=2025-09-30T08:11:55.970571504Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=b32a245e51968f377ae1cb31c7f4c2a7 node_id=labelstore duration=4.625µs
-ts=2025-09-30T08:11:55.970574879Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=b32a245e51968f377ae1cb31c7f4c2a7 node_id=tracing duration=5.084µs
-ts=2025-09-30T08:11:55.970576921Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=b32a245e51968f377ae1cb31c7f4c2a7 node_id=otelcol.exporter.debug.logs duration=74.626µs
-ts=2025-09-30T08:11:55.970580379Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=b32a245e51968f377ae1cb31c7f4c2a7 node_id=otelcol.processor.batch.logs duration=35.334µs
-ts=2025-09-30T08:11:55.970583004Z level=debug msg="Logger core does not support injecting component attributes" component_path=/ component_id=otelcol.receiver.otlp.default
-ts=2025-09-30T08:11:55.970585254Z level=debug msg="created signal-agnostic logger" component_path=/ component_id=otelcol.receiver.otlp.default
-ts=2025-09-30T08:11:55.970586837Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=b32a245e51968f377ae1cb31c7f4c2a7 node_id=otelcol.receiver.otlp.default duration=156.671µs
-ts=2025-09-30T08:11:55.970590546Z level=info msg="replaying WAL, this may take a while" component_path=/ component_id=prometheus.remote_write.metrics subcomponent=wal dir=data-alloy/prometheus.remote_write.metrics/wal
-ts=2025-09-30T08:11:55.970592921Z level=info msg="WAL segment loaded" component_path=/ component_id=prometheus.remote_write.metrics subcomponent=wal segment=0 maxSegment=0
-ts=2025-09-30T08:11:55.970595713Z level=info msg="Starting WAL watcher" component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write queue=4bf392
---
-ts=2025-09-30T08:11:55.972541881Z level=debug msg="finished node evaluation" controller_path=/ controller_id="" node_id=otelcol.processor.batch.traces duration=8.5µs
-ts=2025-09-30T08:11:55.972561715Z level=debug msg="finished node evaluation" controller_path=/ controller_id="" node_id=prometheus.scrape.alloy_metrics duration=15.667µs
-ts=2025-09-30T08:11:55.972585632Z level=debug msg="finished node evaluation" controller_path=/ controller_id="" node_id=otelcol.connector.servicegraph.default duration=19.417µs
-ts=2025-09-30T08:11:55.972598799Z level=debug msg="finished node evaluation" controller_path=/ controller_id="" node_id=otelcol.processor.batch.logs duration=7.25µs
-ts=2025-09-30T08:11:55.972489421Z level=debug msg="finished node evaluation" controller_path=/ controller_id="" node_id=otelcol.processor.batch.metrics duration=1.019065ms
-ts=2025-09-30T08:11:55.972668759Z level=info msg="peers changed" service=cluster peers_count=1 min_cluster_size=0 peers=93ad3817aee9
-ts=2025-09-30T08:12:03.628693737Z level=debug msg="dialed to in-memory listener"
-ts=2025-09-30T08:12:03.628767281Z level=debug msg="accepted new in-memory connection"
-ts=2025-09-30T08:12:03.640410339Z level=info msg="Done replaying WAL" component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write duration=7.670541434s
-ts=2025-09-30T08:12:05.973690427Z level=debug msg="runShard timer ticked, sending buffered data" component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write samples=285 exemplars=0 shard=0 histograms=0
-ts=2025-09-30T08:12:15.974291713Z level=debug msg=QueueManager.calculateDesiredShards component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write dataInRate=28.5 dataOutRate=28.5 dataKeptRatio=1 dataPendingRate=0 dataPending=0 dataOutDuration=0.0016755678 timePerSample=5.879185263157895e-05 desiredShards=0.0016755678 highestSent=1.759219923e+09 highestRecv=1.759219923e+09
-ts=2025-09-30T08:12:15.974484593Z level=debug msg=QueueManager.updateShardsLoop component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write lowerBound=0.7 desiredShards=0.0016755678 upperBound=1.3
-ts=2025-09-30T08:12:18.641028534Z level=debug msg="Watcher is reading the WAL due to timeout, haven't received any write notifications recently" component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write timeout=15s
-ts=2025-09-30T08:12:25.9729513Z level=debug msg=QueueManager.calculateDesiredShards component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write dataInRate=22.8 dataOutRate=22.8 dataKeptRatio=1 dataPendingRate=0 dataPending=0 dataOutDuration=0.00134045424 timePerSample=5.879185263157894e-05 desiredShards=0.00134045424 highestSent=1.759219923e+09 highestRecv=1.759219923e+09
-ts=2025-09-30T08:12:25.973080595Z level=debug msg=QueueManager.updateShardsLoop component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write lowerBound=0.7 desiredShards=0.00134045424 upperBound=1.3
-ts=2025-09-30T08:12:35.974528587Z level=debug msg=QueueManager.calculateDesiredShards component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write dataInRate=18.240000000000002 dataOutRate=18.240000000000002 dataKeptRatio=1 dataPendingRate=0 dataPending=0 dataOutDuration=0.001072363392 timePerSample=5.879185263157894e-05 desiredShards=0.001072363392 highestSent=1.759219923e+09 highestRecv=1.759219923e+09
---
-ts=2025-09-30T08:20:04.128118876Z level=info msg="node exited without error" node=otelcol.exporter.debug.traces
-ts=2025-09-30T08:20:04.128132834Z level=info msg="node exited without error" node=remotecfg
-ts=2025-09-30T08:20:04.128141418Z level=debug msg="Alloy controller exiting"
-ts=2025-09-30T08:20:04.128171834Z level=debug msg="closing storage" component_path=/ component_id=prometheus.remote_write.metrics
-ts=2025-09-30T08:20:04.128434869Z level=info msg="node exited without error" node=prometheus.exporter.self.alloy
-ts=2025-09-30T08:20:04.128741821Z level=info msg="node exited without error" node=otelcol.exporter.debug.logs
-ts=2025-09-30T08:20:04.128860776Z level=info msg="node exited without error" node=otel
-ts=2025-09-30T08:20:04.128883984Z level=info msg="node exited without error" node=livedebugging
-ts=2025-09-30T08:20:04.12891315Z level=info msg="node exited without error" node=otelcol.exporter.debug.metrics
-ts=2025-09-30T08:20:04.128949316Z level=debug msg="changing node state" service=cluster from=participant to=terminating
-ts=2025-09-30T08:20:04.129028439Z level=debug msg="93ad3817aee9 @4: terminating" service=cluster
-ts=2025-09-30T08:20:04.129058022Z level=info msg="node exited without error" node=otelcol.receiver.otlp.default
-ts=2025-09-30T08:20:04.129199811Z level=info msg="http server closed" service=http addr=[::]:12345 err="http: Server closed"
-ts=2025-09-30T08:20:04.129349557Z level=info msg="node exited without error" node=ui
-ts=2025-09-30T08:20:04.12935964Z level=info msg="node exited without error" node=labelstore
-ts=2025-09-30T08:20:04.129380598Z level=info msg="node exited without error" node=otelcol.processor.batch.traces
-ts=2025-09-30T08:20:04.129418056Z level=info msg="Shutting down servicegraphconnector" component_path=/ component_id=otelcol.connector.servicegraph.default
-ts=2025-09-30T08:20:04.129467763Z level=info msg="node exited without error" node=otelcol.connector.servicegraph.default
-ts=2025-09-30T08:20:04.129541053Z level=info msg="http server closed" service=http addr=memory err="http: Server closed"
-ts=2025-09-30T08:20:04.12957776Z level=info msg="node exited without error" node=http
-ts=2025-09-30T08:20:04.129678841Z level=info msg="node exited without error" node=prometheus.scrape.alloy_metrics
-ts=2025-09-30T08:20:04.129692966Z level=info msg="scrape manager stopped" component_path=/ component_id=prometheus.scrape.alloy_metrics
-ts=2025-09-30T08:20:04.129727507Z level=info msg="node exited without error" node=otelcol.processor.batch.metrics
-ts=2025-09-30T08:20:04.129761756Z level=info msg="node exited without error" node=cluster
-ts=2025-09-30T08:20:04.12976359Z level=info msg="node exited without error" node=otelcol.processor.batch.logs
-ts=2025-09-30T08:20:04.133470881Z level=info msg="Stopping remote storage..." component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write
-ts=2025-09-30T08:20:04.173248112Z level=warn msg="Failed to send batch, retrying" component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write err="server returned HTTP status 503 Service Unavailable: Service Unavailable"
-ts=2025-09-30T08:20:04.234210534Z level=warn msg="Failed to send batch, retrying" component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write err="Post \"http://prometheus:9090/api/v1/write\": dial tcp 172.21.0.3:9090: connect: connection refused"
-ts=2025-09-30T08:20:04.415210091Z level=warn msg="Failed to send batch, retrying" component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write err="Post \"http://prometheus:9090/api/v1/write\": dial tcp: lookup prometheus on 127.0.0.11:53: server misbehaving"
-ts=2025-09-30T08:23:18.607081481Z level=info "boringcrypto enabled"=false
-ts=2025-09-30T08:23:18.593167454Z level=info source=/go/pkg/mod/github.com/!kim!machine!gun/automemlimit@v0.7.1/memlimit/memlimit.go:175 msg="memory is not limited, skipping" package=github.com/KimMachineGun/automemlimit/memlimit
---
-ts=2025-09-30T08:23:18.607134817Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=9a8580abdcbe88a0b36d028c1d2cb308 node_id=otelcol.exporter.debug.traces duration=79.545µs
-ts=2025-09-30T08:23:18.60713665Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=9a8580abdcbe88a0b36d028c1d2cb308 node_id=otelcol.processor.batch.traces duration=27.252µs
-ts=2025-09-30T08:23:18.607138859Z level=debug msg="Logger core does not support injecting component attributes" component_path=/ component_id=otelcol.receiver.otlp.default
-ts=2025-09-30T08:23:18.607140609Z level=debug msg="created signal-agnostic logger" component_path=/ component_id=otelcol.receiver.otlp.default
-ts=2025-09-30T08:23:18.607146442Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=9a8580abdcbe88a0b36d028c1d2cb308 node_id=otelcol.receiver.otlp.default duration=109.172µs
-ts=2025-09-30T08:23:18.607148442Z level=info msg="replaying WAL, this may take a while" component_path=/ component_id=prometheus.remote_write.metrics subcomponent=wal dir=data-alloy/prometheus.remote_write.metrics/wal
-ts=2025-09-30T08:23:18.607150484Z level=info msg="WAL segment loaded" component_path=/ component_id=prometheus.remote_write.metrics subcomponent=wal segment=0 maxSegment=1
-ts=2025-09-30T08:23:18.607152318Z level=info msg="WAL segment loaded" component_path=/ component_id=prometheus.remote_write.metrics subcomponent=wal segment=1 maxSegment=1
-ts=2025-09-30T08:23:18.607153943Z level=info msg="Starting WAL watcher" component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write queue=4bf392
-ts=2025-09-30T08:23:18.607156026Z level=info msg="Starting scraped metadata watcher" component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write
-ts=2025-09-30T08:23:18.607157693Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=9a8580abdcbe88a0b36d028c1d2cb308 node_id=prometheus.remote_write.metrics duration=6.478012ms
-ts=2025-09-30T08:23:18.607160776Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=9a8580abdcbe88a0b36d028c1d2cb308 node_id=logging duration=107.13µs
-ts=2025-09-30T08:23:18.607186028Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=9a8580abdcbe88a0b36d028c1d2cb308 node_id=remotecfg duration=21.501µs
-ts=2025-09-30T08:23:18.607195945Z level=info msg="applying non-TLS config to HTTP server" service=http
-ts=2025-09-30T08:23:18.607198236Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=9a8580abdcbe88a0b36d028c1d2cb308 node_id=http duration=6.333µs
-ts=2025-09-30T08:23:18.607211529Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=9a8580abdcbe88a0b36d028c1d2cb308 node_id=cluster duration=6.958µs
-ts=2025-09-30T08:23:18.607217987Z level=info msg="finished node evaluation" controller_path=/ controller_id="" trace_id=9a8580abdcbe88a0b36d028c1d2cb308 node_id=livedebugging duration=3.416µs
---
-ts=2025-09-30T08:23:18.61283175Z level=debug msg="finished node evaluation" controller_path=/ controller_id="" node_id=otelcol.processor.batch.traces duration=11.251µs
-ts=2025-09-30T08:23:18.612901795Z level=debug msg="finished node evaluation" controller_path=/ controller_id="" node_id=prometheus.scrape.alloy_metrics duration=39.585µs
-ts=2025-09-30T08:23:18.613224519Z level=debug msg="finished node evaluation" controller_path=/ controller_id="" node_id=otelcol.receiver.otlp.default duration=89.296µs
-ts=2025-09-30T08:23:18.614154812Z level=debug msg="passed new targets to scrape manager" component_path=/ component_id=prometheus.scrape.alloy_metrics
-ts=2025-09-30T08:23:18.615449081Z level=info msg="Started servicegraphconnector" component_path=/ component_id=otelcol.connector.servicegraph.default
-ts=2025-09-30T08:23:18.616421793Z level=info msg="now listening for http traffic" service=http addr=0.0.0.0:12345
-ts=2025-09-30T08:23:18.619355472Z level=info msg="peers changed" service=cluster peers_count=1 min_cluster_size=0 peers=93ad3817aee9
-ts=2025-09-30T08:23:18.618174084Z level=info msg="Starting GRPC server" component_path=/ component_id=otelcol.receiver.otlp.default endpoint=0.0.0.0:4317
-ts=2025-09-30T08:23:18.621443945Z level=info msg="Starting HTTP server" component_path=/ component_id=otelcol.receiver.otlp.default endpoint=0.0.0.0:4318
-ts=2025-09-30T08:23:33.61283776Z level=debug msg="Watcher is reading the WAL due to timeout, haven't received any write notifications recently" component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write timeout=15s
-ts=2025-09-30T08:24:03.625557581Z level=debug msg="accepted new in-memory connection"
-ts=2025-09-30T08:24:03.626994248Z level=debug msg="dialed to in-memory listener"
-ts=2025-09-30T08:24:03.636643276Z level=info msg="Done replaying WAL" component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write duration=45.029221821s
-ts=2025-09-30T08:24:08.616831963Z level=debug msg="runShard timer ticked, sending buffered data" component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write samples=287 exemplars=0 shard=0 histograms=0
-ts=2025-09-30T08:24:18.610874859Z level=debug msg=QueueManager.calculateDesiredShards component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write dataInRate=22.96 dataOutRate=28.7 dataKeptRatio=1 dataPendingRate=-5.739999999999998 dataPending=0 dataOutDuration=0.00071357 timePerSample=2.4863066202090592e-05 desiredShards=0.000570856 highestSent=1.759220643e+09 highestRecv=1.759220643e+09
-ts=2025-09-30T08:24:18.61171409Z level=debug msg=QueueManager.updateShardsLoop component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=4bf392 url=http://prometheus:9090/api/v1/write lowerBound=0.7 desiredShards=0.000570856 upperBound=1.3
+ts=2025-10-14T08:36:32.295989625Z level=info msg=Traces component_path=/ component_id=otelcol.exporter.debug.traces resource_spans=1 spans=1
+ts=2025-10-14T08:36:32.296426541Z level=info msg="ResourceSpans #0\nResource SchemaURL: \nResource attributes:\n     -> telemetry.sdk.language: Str(python)\n     -> telemetry.sdk.name: Str(opentelemetry)\n     -> telemetry.sdk.version: Str(1.37.0)\n     -> service.name: Str(grpc-demo-service)\n     -> service.version: Str(3.0.1)\n     -> deployment.environment: Str(development)\nScopeSpans #0\nScopeSpans SchemaURL: \nInstrumentationScope __main__ \nSpan #0\n    Trace ID       : c6bf949b4dc7d33496cfa5d6bc801320\n    Parent ID      : \n    ID             : 0ccf72736afdb492\n    Name           : database-query\n    Kind           : Internal\n    Start time     : 2025-10-14 08:36:31.899843 +0000 UTC\n    End time       : 2025-10-14 08:36:32.003638 +0000 UTC\n    Status code    : Unset\n    Status message : \nAttributes:\n     -> db.system: Str(postgresql)\n     -> db.name: Str(user_database)\n     -> db.operation: Str(SELECT)\n     -> db.table: Str(users)\n     -> query.duration_ms: Int(45)\n     -> query.rows_affected: Int(3)\n     -> connection.pool.size: Int(10)\n" component_path=/ component_id=otelcol.exporter.debug.traces
+ts=2025-10-14T08:36:32.296852833Z level=debug msg="Preparing to make HTTP request" component_path=/ component_id=otelcol.exporter.otlphttp.tempo url=http://tempo:4318/v1/traces
+ts=2025-10-14T08:36:41.697792006Z level=debug msg="runShard timer ticked, sending buffered data" component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=f076e9 url=http://prometheus:9090/api/v1/write samples=637 exemplars=0 shard=0 histograms=0
+ts=2025-10-14T08:36:46.628953236Z level=debug msg=QueueManager.calculateDesiredShards component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=f076e9 url=http://prometheus:9090/api/v1/write dataInRate=23.828691199999998 dataOutRate=23.828691199999998 dataKeptRatio=1 dataPendingRate=0 dataPending=0 dataOutDuration=0.0016224973990016 timePerSample=6.809007617680657e-05 desiredShards=0.0016224973990016003 highestSent=1.760431e+09 highestRecv=1.760431e+09
+ts=2025-10-14T08:36:46.629164611Z level=debug msg=QueueManager.updateShardsLoop component_path=/ component_id=prometheus.remote_write.metrics subcomponent=rw remote_name=f076e9 url=http://prometheus:9090/api/v1/write lowerBound=0.7 desiredShards=0.0016224973990016003 upperBound=1.3
+ts=2025-10-14T08:37:06.541549955Z level=info msg=Traces component_path=/ component_id=otelcol.exporter.debug.traces resource_spans=1 spans=1
+ts=2025-10-14T08:37:06.541794205Z level=info msg="ResourceSpans #0\nResource SchemaURL: \nResource attributes:\n     -> telemetry.sdk.language: Str(python)\n     -> telemetry.sdk.name: Str(opentelemetry)\n     -> telemetry.sdk.version: Str(1.37.0)\n     -> service.name: Str(grpc-demo-service)\n     -> service.version: Str(3.0.1)\n     -> deployment.environment: Str(development)\nScopeSpans #0\nScopeSpans SchemaURL: \nInstrumentationScope __main__ \nSpan #0\n    Trace ID       : 00781f34cade76c00c654c3a930dd13f\n    Parent ID      : \n    ID             : 2b50e69ef93cd8ac\n    Name           : database-query\n    Kind           : Internal\n    Start time     : 2025-10-14 08:37:06.252285 +0000 UTC\n    End time       : 2025-10-14 08:37:06.355399 +0000 UTC\n    Status code    : Unset\n    Status message : \nAttributes:\n     -> db.system: Str(postgresql)\n     -> db.name: Str(user_database)\n     -> db.operation: Str(SELECT)\n     -> db.table: Str(users)\n     -> query.duration_ms: Int(45)\n     -> query.rows_affected: Int(3)\n     -> connection.pool.size: Int(10)\n" component_path=/ component_id=otelcol.exporter.debug.traces
+ts=2025-10-14T08:37:06.542006247Z level=debug msg="Preparing to make HTTP request" component_path=/ component_id=otelcol.exporter.otlphttp.tempo url=http://tempo:4318/v1/traces
