@@ -4,7 +4,7 @@ services:
     container_name: alloy
     command: ["run", "--server.http.listen-addr=0.0.0.0:12345", "--stability.level=experimental", "/etc/alloy/config.alloy"]
     volumes:
-      - ./alloy-config-simple.alloy:/etc/alloy/config.alloy
+      - ./alloy-config-simple-tail-based.alloy:/etc/alloy/config.alloy
       - ./traces:/tmp
     ports:
       - "4317:4317"

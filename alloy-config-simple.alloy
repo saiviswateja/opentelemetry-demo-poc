@@ -26,11 +26,11 @@ prometheus.scrape "alloy_metrics" {
   forward_to = [prometheus.remote_write.metrics.receiver]
 }
 
-  prometheus.remote_write "metrics" {
-    endpoint {
-      url = "http://prometheus:9090/api/v1/write"
-    }
+prometheus.remote_write "metrics" {
+  endpoint {
+    url = "http://prometheus:9090/api/v1/write"
   }
+}
 
 // Batch processor for metrics (will output to debug)
 otelcol.processor.batch "metrics" {
